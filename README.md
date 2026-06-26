@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Developer Portfolio — Next.js 16
 
-## Getting Started
+A modern, dark + neon-glow frontend developer portfolio built with **Next.js 16**, **React 19**, **Tailwind CSS v4** and **Motion**.
 
-First, run the development server:
+## Run it
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev     # start dev server → http://localhost:3000
+npm run build   # production build
+npm start       # run the production build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✏️ How to edit everything
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**All content lives in one file:** [`src/data/portfolio.ts`](src/data/portfolio.ts)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| What                                       | Where in `portfolio.ts`                         |
+| ------------------------------------------ | ----------------------------------------------- |
+| Your name, roles, tagline, email, location | `profile`                                       |
+| Social links (GitHub, LinkedIn, etc.)      | `profile.socials`                               |
+| Stats (years, projects…)                   | `profile.stats`                                 |
+| "What I do" cards                          | `services`                                      |
+| Skills / tech stack                        | `skills`                                        |
+| Projects showcase                          | `projects` (set `featured: true` for big cards) |
+| Work timeline                              | `experience`                                    |
 
-## Learn More
+No need to touch the components — just edit the data.
 
-To learn more about Next.js, take a look at the following resources:
+## Pages (multi-page, menu-wise)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Route          | What's on it                                                              |
+| -------------- | ------------------------------------------------------------------------- |
+| `/`            | Landing — hero, stats, services preview, featured work, testimonials, CTA |
+| `/about`       | Full bio, values, experience timeline, education, interests               |
+| `/services`    | Detailed services with deliverables + my 4-step process                   |
+| `/skills`      | Tech stack with proficiency bars + currently learning                     |
+| `/work`        | All projects grid (each card → case study)                                |
+| `/work/[slug]` | Full case study: overview, challenge, solution, features, results, tech   |
+| `/contact`     | Contact form, details, social links + FAQ                                 |
+| `*`            | Custom 404 page                                                           |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The navbar/footer are shared via the root layout, the active menu item is highlighted automatically, and routes fade in on navigation.
 
-## Deploy on Vercel
+Add a project by appending an entry to the `projects` array in `portfolio.ts` (give it a unique `slug`) — its case-study page is generated automatically.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Customize the look
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Colors / theme:** edit the `@theme` tokens at the top of [`src/app/globals.css`](src/app/globals.css) (`--color-cyan`, `--color-violet`, `--color-pink`, etc.)
+- **Fonts:** changed in [`src/app/layout.tsx`](src/app/layout.tsx) (currently Space Grotesk + JetBrains Mono)
+
+## A few notes
+
+- The **contact form** is demo-only. Wire it to an API route or a service like Resend / Formspree in `src/components/Contact.tsx`.
+- Add your **resume** as `public/resume.pdf` (the Hero "Resume" button links to `/resume.pdf`).
+- Replace project gradient placeholders with real screenshots by editing `Projects.tsx` if you want images.
+
+Built with Next.js App Router, fully responsive, accessible, and reduced-motion friendly.
