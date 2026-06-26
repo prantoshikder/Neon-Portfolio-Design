@@ -1,19 +1,19 @@
-import type { Metadata } from "next";
+import CtaBand from "@/components/CtaBand";
+import Experience from "@/components/Experience";
+import Stats from "@/components/Stats";
+import PageHeader from "@/components/ui/PageHeader";
+import Reveal from "@/components/ui/Reveal";
+import SectionHeading from "@/components/ui/SectionHeading";
+import { education, profile } from "@/data/portfolio";
 import {
-  Target,
-  Gauge,
   Accessibility,
-  Sparkles,
+  Gauge,
   GraduationCap,
+  Sparkles,
+  Target,
   type LucideIcon,
 } from "lucide-react";
-import PageHeader from "@/components/ui/PageHeader";
-import SectionHeading from "@/components/ui/SectionHeading";
-import Reveal from "@/components/ui/Reveal";
-import Stats from "@/components/Stats";
-import Experience from "@/components/Experience";
-import CtaBand from "@/components/CtaBand";
-import { profile, education } from "@/data/portfolio";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About — Pranto Shikder",
@@ -48,11 +48,11 @@ export default function AboutPage() {
 
           <Reveal delay={0.15}>
             <div className="glass glow-border relative aspect-square overflow-hidden rounded-3xl">
-              <div className="from-cyan/20 via-violet/10 to-pink/20 absolute inset-0 bg-gradient-to-br" />
-              <div className="absolute inset-0 [background-image:linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] [background-size:32px_32px] opacity-30" />
+              <div className="from-cyan/20 via-violet/10 to-pink/20 absolute inset-0 bg-linear-to-br" />
+              <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-size-[32px_32px] opacity-30" />
               <div className="absolute inset-0 grid place-items-center">
                 <div className="text-center">
-                  <div className="from-cyan to-violet bg-gradient-to-br bg-clip-text font-mono text-7xl font-bold text-transparent">
+                  <div className="from-cyan to-violet bg-linear-to-br bg-clip-text font-mono text-7xl font-bold text-transparent">
                     {profile.name
                       .split(" ")
                       .map((n) => n[0])
@@ -86,7 +86,7 @@ export default function AboutPage() {
             return (
               <Reveal key={value.title} delay={i * 0.08}>
                 <div className="glass glow-border h-full rounded-2xl p-6 transition-transform hover:-translate-y-1">
-                  <div className="text-cyan mb-4 inline-grid h-11 w-11 place-items-center rounded-xl border border-white/10 bg-gradient-to-br from-white/10 to-white/0">
+                  <div className="text-cyan mb-4 inline-grid h-11 w-11 place-items-center rounded-xl border border-white/10 bg-linear-to-br from-white/10 to-white/0">
                     <Icon size={20} />
                   </div>
                   <h3 className="text-text mb-1.5 font-semibold">
@@ -117,7 +117,7 @@ export default function AboutPage() {
           {education.map((edu, i) => (
             <Reveal key={edu.degree} delay={i * 0.1}>
               <div className="glass h-full rounded-2xl p-6">
-                <div className="text-violet mb-4 inline-grid h-11 w-11 place-items-center rounded-xl border border-white/10 bg-gradient-to-br from-white/10 to-white/0">
+                <div className="text-violet mb-4 inline-grid h-11 w-11 place-items-center rounded-xl border border-white/10 bg-linear-to-br from-white/10 to-white/0">
                   <GraduationCap size={20} />
                 </div>
                 <span className="text-cyan font-mono text-xs">
@@ -145,7 +145,7 @@ export default function AboutPage() {
           {profile.interests.map((interest) => (
             <span
               key={interest}
-              className="text-text/90 hover:border-cyan/40 hover:text-cyan rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm transition-all hover:-translate-y-0.5"
+              className="text-text/90 hover:border-cyan/40 hover:text-cyan rounded-xl border border-white/10 bg-white/4 px-4 py-2.5 text-sm transition-all hover:-translate-y-0.5"
             >
               {interest}
             </span>

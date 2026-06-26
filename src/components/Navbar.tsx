@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { navLinks, profile } from "@/data/portfolio";
+import { Code2, Menu, X } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "motion/react";
-import { Menu, X, Code2 } from "lucide-react";
-import { navLinks, profile } from "@/data/portfolio";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -20,6 +20,7 @@ export default function Navbar() {
   }, []);
 
   // Close the mobile menu whenever the route changes
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => setOpen(false), [pathname]);
 
   const isActive = (href: string) =>
@@ -43,7 +44,7 @@ export default function Navbar() {
           href="/"
           className="group flex items-center gap-2 font-mono text-sm font-bold"
         >
-          <span className="from-cyan to-violet text-bg grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br shadow-[0_0_20px_-2px_var(--color-violet)] transition-transform group-hover:scale-110">
+          <span className="from-cyan to-violet text-bg grid h-9 w-9 place-items-center rounded-xl bg-linear-to-br shadow-[0_0_20px_-2px_var(--color-violet)] transition-transform group-hover:scale-110">
             <Code2 size={18} strokeWidth={2.5} />
           </span>
           <span className="hidden sm:inline">
@@ -80,7 +81,7 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <Link
             href="/contact"
-            className="from-cyan to-violet text-bg hidden rounded-xl bg-gradient-to-r px-4 py-2 text-sm font-semibold shadow-[0_0_24px_-6px_var(--color-violet)] transition-transform hover:scale-105 md:inline-block"
+            className="from-cyan to-violet text-bg hidden rounded-xl bg-linear-to-r px-4 py-2 text-sm font-semibold shadow-[0_0_24px_-6px_var(--color-violet)] transition-transform hover:scale-105 md:inline-block"
           >
             Hire Me
           </Link>
@@ -101,7 +102,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="glass absolute inset-x-4 top-[4.5rem] rounded-2xl p-3 md:hidden"
+            className="glass absolute inset-x-4 top-18 rounded-2xl p-3 md:hidden"
           >
             <ul className="flex flex-col">
               {navLinks.map((link) => (
@@ -119,7 +120,7 @@ export default function Navbar() {
               <li>
                 <Link
                   href="/contact"
-                  className="from-cyan to-violet text-bg mt-1 block rounded-xl bg-gradient-to-r px-4 py-3 text-center text-sm font-semibold"
+                  className="from-cyan to-violet text-bg mt-1 block rounded-xl bg-linear-to-r px-4 py-3 text-center text-sm font-semibold"
                 >
                   Hire Me
                 </Link>

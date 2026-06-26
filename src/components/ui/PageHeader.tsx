@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import Link from "next/link";
 import Reveal from "./Reveal";
 
 type Crumb = { label: string; href?: string };
@@ -20,7 +20,7 @@ export default function PageHeader({
   return (
     <header className="relative overflow-hidden px-5 pt-36 pb-12 sm:pt-40">
       {/* Glow behind heading */}
-      <div className="bg-violet/15 pointer-events-none absolute top-20 left-1/2 -z-10 h-64 w-[42rem] max-w-full -translate-x-1/2 rounded-full blur-[100px]" />
+      <div className="bg-violet/15 pointer-events-none absolute top-20 left-1/2 -z-10 h-64 w-2xl max-w-full -translate-x-1/2 rounded-full blur-[100px]" />
 
       <div className="mx-auto max-w-6xl">
         {crumbs && (

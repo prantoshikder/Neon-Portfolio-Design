@@ -171,7 +171,7 @@ export default function TechStack() {
           }}
           whileHover={{ y: -6 }}
           style={{ "--brand": tech.color } as React.CSSProperties}
-          className="group glass relative flex flex-col items-center gap-3 overflow-hidden rounded-2xl p-6 text-center transition-colors duration-300 hover:border-[var(--brand)]/40"
+          className="group glass relative flex flex-col items-center gap-3 overflow-hidden rounded-2xl p-6 text-center transition-colors duration-300 hover:border-(--brand)/40"
         >
           {/* brand-colored glow that fades in on hover */}
           <span

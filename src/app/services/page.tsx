@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
-import PageHeader from "@/components/ui/PageHeader";
-import SectionHeading from "@/components/ui/SectionHeading";
-import Reveal from "@/components/ui/Reveal";
-import ServicesGrid from "@/components/ServicesGrid";
 import CtaBand from "@/components/CtaBand";
+import ServicesGrid from "@/components/ServicesGrid";
+import PageHeader from "@/components/ui/PageHeader";
+import Reveal from "@/components/ui/Reveal";
+import SectionHeading from "@/components/ui/SectionHeading";
 import { process } from "@/data/portfolio";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Services — Pranto Shikder",
@@ -38,7 +38,7 @@ export default function ServicesPage() {
           {process.map((step, i) => (
             <Reveal key={step.step} delay={i * 0.08}>
               <div className="glass glow-border relative h-full overflow-hidden rounded-2xl p-6">
-                <span className="absolute -top-4 -right-2 bg-gradient-to-br from-white/10 to-transparent bg-clip-text font-mono text-7xl font-bold text-transparent">
+                <span className="absolute -top-4 -right-2 bg-linear-to-br from-white/10 to-transparent bg-clip-text font-mono text-7xl font-bold text-transparent">
                   {step.step}
                 </span>
                 <div className="relative">

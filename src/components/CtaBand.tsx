@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 import Reveal from "./ui/Reveal";
 
 type Props = {
@@ -27,7 +27,7 @@ export default function CtaBand({
           <div className="relative mt-8 flex flex-wrap items-center justify-center gap-3">
             <Link
               href="/contact"
-              className="group from-cyan to-violet text-bg inline-flex items-center gap-2 rounded-xl bg-gradient-to-r px-6 py-3 text-sm font-semibold shadow-[0_0_30px_-6px_var(--color-violet)] transition-transform hover:scale-105"
+              className="group from-cyan to-violet text-bg inline-flex items-center gap-2 rounded-xl bg-linear-to-r px-6 py-3 text-sm font-semibold shadow-[0_0_30px_-6px_var(--color-violet)] transition-transform hover:scale-105"
             >
               Start a Project
               <ArrowRight

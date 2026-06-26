@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Link from "next/link";
-import { motion } from "motion/react";
-import { ArrowRight, Download, MapPin } from "lucide-react";
-import { Github, Linkedin, Twitter, Dribbble } from "./ui/BrandIcons";
 import { profile } from "@/data/portfolio";
+import { ArrowRight, Download, MapPin } from "lucide-react";
+import { motion } from "motion/react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { Dribbble, Github, Linkedin, Twitter } from "./ui/BrandIcons";
 
 /** Lightweight typewriter effect cycling through the roles. */
 function useTypewriter(words: string[], speed = 90, pause = 1400) {
@@ -20,6 +20,7 @@ function useTypewriter(words: string[], speed = 90, pause = 1400) {
     if (!deleting && text === current) {
       timeout = setTimeout(() => setDeleting(true), pause);
     } else if (deleting && text === "") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setDeleting(false);
       setIndex((i) => i + 1);
     } else {
@@ -116,7 +117,7 @@ export default function Hero() {
           >
             <Link
               href="/work"
-              className="group from-cyan to-violet text-bg inline-flex items-center gap-2 rounded-xl bg-gradient-to-r px-6 py-3 text-sm font-semibold shadow-[0_0_30px_-6px_var(--color-violet)] transition-transform hover:scale-105"
+              className="group from-cyan to-violet text-bg inline-flex items-center gap-2 rounded-xl bg-linear-to-r px-6 py-3 text-sm font-semibold shadow-[0_0_30px_-6px_var(--color-violet)] transition-transform hover:scale-105"
             >
               View My Work
               <ArrowRight
@@ -171,7 +172,7 @@ export default function Hero() {
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               className="text-center font-mono"
             >
-              <div className="from-cyan to-violet bg-gradient-to-br bg-clip-text text-6xl font-bold text-transparent">
+              <div className="from-cyan to-violet bg-linear-to-br bg-clip-text text-6xl font-bold text-transparent">
                 {profile.name
                   .split(" ")
                   .map((n) => n[0])

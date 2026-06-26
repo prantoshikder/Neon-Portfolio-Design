@@ -1,17 +1,17 @@
 "use client";
 
-import { motion } from "motion/react";
+import { services as allServices } from "@/data/portfolio";
 import {
-  Layout,
-  Palette,
-  Sparkles,
-  Gauge,
-  Smartphone,
   Accessibility,
   Check,
+  Gauge,
+  Layout,
+  Palette,
+  Smartphone,
+  Sparkles,
   type LucideIcon,
 } from "lucide-react";
-import { services as allServices } from "@/data/portfolio";
+import { motion } from "motion/react";
 
 const iconMap: Record<string, LucideIcon> = {
   Layout,
@@ -45,9 +45,9 @@ export default function ServicesGrid({ limit, detailed = false }: Props) {
             transition={{ duration: 0.5, delay: (i % 3) * 0.07 }}
             className="glass glow-border group relative overflow-hidden rounded-2xl p-6 transition-transform duration-300 hover:-translate-y-1.5"
           >
-            <div className="from-cyan/20 to-violet/20 absolute -top-8 -right-8 h-24 w-24 rounded-full bg-gradient-to-br opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100" />
+            <div className="from-cyan/20 to-violet/20 absolute -top-8 -right-8 h-24 w-24 rounded-full bg-linear-to-br opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100" />
 
-            <div className="text-cyan group-hover:text-violet mb-5 inline-grid h-12 w-12 place-items-center rounded-xl border border-white/10 bg-gradient-to-br from-white/10 to-white/0 transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_24px_-4px_var(--color-violet)]">
+            <div className="text-cyan group-hover:text-violet mb-5 inline-grid h-12 w-12 place-items-center rounded-xl border border-white/10 bg-linear-to-br from-white/10 to-white/0 transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_24px_-4px_var(--color-violet)]">
               <Icon size={22} strokeWidth={2} />
             </div>
 

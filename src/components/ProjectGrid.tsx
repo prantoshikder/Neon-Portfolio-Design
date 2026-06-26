@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
-import { motion } from "motion/react";
-import { ArrowUpRight } from "lucide-react";
 import { projects as allProjects } from "@/data/portfolio";
+import { ArrowUpRight } from "lucide-react";
+import { motion } from "motion/react";
+import Link from "next/link";
 
 const gradients: Record<string, string> = {
   "gradient-1": "from-cyan/30 via-blue/20 to-violet/30",
@@ -44,11 +44,11 @@ export default function ProjectGrid({ featuredOnly = false }: Props) {
           >
             {/* Visual */}
             <div
-              className={`relative aspect-[16/10] overflow-hidden bg-gradient-to-br ${
+              className={`relative aspect-16/10 overflow-hidden bg-linear-to-br ${
                 gradients[project.image] ?? gradients["gradient-1"]
               }`}
             >
-              <div className="absolute inset-0 [background-image:linear-gradient(rgba(255,255,255,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.15)_1px,transparent_1px)] [background-size:28px_28px] opacity-30" />
+              <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.15)_1px,transparent_1px)] bg-size-[28px_28px] opacity-30" />
               <div className="absolute inset-0 grid place-items-center">
                 <span className="font-mono text-2xl font-bold text-white/80 drop-shadow-lg">
                   {project.title.split(" ")[0]}
@@ -79,7 +79,7 @@ export default function ProjectGrid({ featuredOnly = false }: Props) {
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="text-muted rounded-md border border-white/10 bg-white/[0.03] px-2.5 py-1 font-mono text-xs"
+                    className="text-muted rounded-md border border-white/10 bg-white/3 px-2.5 py-1 font-mono text-xs"
                   >
                     {tag}
                   </span>

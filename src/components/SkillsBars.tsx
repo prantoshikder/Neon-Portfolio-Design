@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "motion/react";
 import { skills } from "@/data/portfolio";
+import { motion } from "motion/react";
 
 export default function SkillsBars() {
   return (
@@ -16,7 +16,7 @@ export default function SkillsBars() {
           className="glass rounded-2xl p-6"
         >
           <h3 className="text-muted mb-5 flex items-center gap-2 text-sm font-semibold tracking-wider uppercase">
-            <span className="from-cyan to-violet h-2 w-2 rounded-full bg-gradient-to-r" />
+            <span className="from-cyan to-violet h-2 w-2 rounded-full bg-linear-to-r" />
             {group.category}
           </h3>
 
@@ -29,13 +29,13 @@ export default function SkillsBars() {
                     {item.level}%
                   </span>
                 </div>
-                <div className="h-2 overflow-hidden rounded-full bg-white/[0.06]">
+                <div className="h-2 overflow-hidden rounded-full bg-white/6">
                   <motion.div
                     initial={{ width: 0 }}
                     whileInView={{ width: `${item.level}%` }}
                     viewport={{ once: true }}
                     transition={{ duration: 1, ease: "easeOut", delay: 0.1 }}
-                    className="from-cyan to-violet h-full rounded-full bg-gradient-to-r shadow-[0_0_12px_-2px_var(--color-violet)]"
+                    className="from-cyan to-violet h-full rounded-full bg-linear-to-r shadow-[0_0_12px_-2px_var(--color-violet)]"
                   />
                 </div>
               </div>

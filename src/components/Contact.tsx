@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "motion/react";
-import { Mail, Phone, MapPin, Send, CheckCircle2 } from "lucide-react";
-import { Github, Linkedin, Twitter } from "./ui/BrandIcons";
 import { profile } from "@/data/portfolio";
+import { CheckCircle2, Mail, MapPin, Phone, Send } from "lucide-react";
+import { motion } from "motion/react";
+import { useState } from "react";
+import { Github, Linkedin, Twitter } from "./ui/BrandIcons";
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
@@ -126,14 +126,14 @@ export default function Contact() {
                 required
                 rows={4}
                 placeholder="Tell me about your project..."
-                className="text-text placeholder:text-muted/50 focus:border-cyan/50 resize-none rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm transition-colors outline-none focus:bg-white/[0.06]"
+                className="text-text placeholder:text-muted/50 focus:border-cyan/50 resize-none rounded-xl border border-white/10 bg-white/3 px-4 py-3 text-sm transition-colors outline-none focus:bg-white/6"
               />
             </div>
 
             <button
               type="submit"
               disabled={sent}
-              className="group from-cyan to-violet text-bg mt-1 inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r px-6 py-3 text-sm font-semibold shadow-[0_0_30px_-6px_var(--color-violet)] transition-transform hover:scale-[1.02] disabled:opacity-80"
+              className="group from-cyan to-violet text-bg mt-1 inline-flex items-center justify-center gap-2 rounded-xl bg-linear-to-r px-6 py-3 text-sm font-semibold shadow-[0_0_30px_-6px_var(--color-violet)] transition-transform hover:scale-[1.02] disabled:opacity-80"
             >
               {sent ? (
                 <>
@@ -178,7 +178,7 @@ function Field({
         type={type}
         required
         placeholder={placeholder}
-        className="text-text placeholder:text-muted/50 focus:border-cyan/50 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm transition-colors outline-none focus:bg-white/[0.06]"
+        className="text-text placeholder:text-muted/50 focus:border-cyan/50 rounded-xl border border-white/10 bg-white/3 px-4 py-3 text-sm transition-colors outline-none focus:bg-white/6"
       />
     </div>
   );

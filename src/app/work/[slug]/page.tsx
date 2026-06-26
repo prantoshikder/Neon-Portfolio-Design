@@ -1,19 +1,19 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { notFound } from "next/navigation";
+import CtaBand from "@/components/CtaBand";
+import { Github } from "@/components/ui/BrandIcons";
+import Reveal from "@/components/ui/Reveal";
+import { projects } from "@/data/portfolio";
 import {
   ArrowLeft,
   ArrowRight,
   ArrowUpRight,
-  Check,
-  Calendar,
-  User,
   Briefcase,
+  Calendar,
+  Check,
+  User,
 } from "lucide-react";
-import { Github } from "@/components/ui/BrandIcons";
-import Reveal from "@/components/ui/Reveal";
-import CtaBand from "@/components/CtaBand";
-import { projects } from "@/data/portfolio";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
 
 const gradients: Record<string, string> = {
   "gradient-1": "from-cyan/40 via-blue/25 to-violet/40",
@@ -55,6 +55,8 @@ export default async function CaseStudyPage({
 
   const next = projects[(index + 1) % projects.length];
 
+  const newLocal =
+    "from-cyan to-violet text-bg inline-flex items-center gap-1.5 rounded-xl bg-linear-to-r px-4 py-2 text-sm font-semibold transition-transform hover:scale-105";
   return (
     <>
       <article className="px-5 pt-36 pb-12 sm:pt-40">
@@ -75,7 +77,7 @@ export default async function CaseStudyPage({
               {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="text-cyan rounded-md border border-white/10 bg-white/[0.04] px-2.5 py-1 font-mono text-xs"
+                  className="text-cyan rounded-md border border-white/10 bg-white/4 px-2.5 py-1 font-mono text-xs"
                 >
                   {tag}
                 </span>
@@ -100,7 +102,7 @@ export default async function CaseStudyPage({
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="from-cyan to-violet text-bg inline-flex items-center gap-1.5 rounded-xl bg-gradient-to-r px-4 py-2 text-sm font-semibold transition-transform hover:scale-105"
+                  className={newLocal}
                 >
                   Live Site <ArrowUpRight size={15} />
                 </a>
@@ -121,11 +123,11 @@ export default async function CaseStudyPage({
         {/* Hero visual */}
         <Reveal delay={0.15} className="mx-auto mt-10 max-w-5xl">
           <div
-            className={`relative aspect-[16/9] overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br ${
+            className={`relative aspect-video overflow-hidden rounded-3xl border border-white/10 bg-linear-to-br ${
               gradients[project.image] ?? gradients["gradient-1"]
             }`}
           >
-            <div className="absolute inset-0 [background-image:linear-gradient(rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.12)_1px,transparent_1px)] [background-size:40px_40px] opacity-25" />
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.12)_1px,transparent_1px)] bg-size-[40px_40px] opacity-25" />
             <div className="absolute inset-0 grid place-items-center">
               <span className="font-mono text-4xl font-bold text-white/80 drop-shadow-lg sm:text-5xl">
                 {project.title}
@@ -144,7 +146,7 @@ export default async function CaseStudyPage({
                   key={r.label}
                   className="glass glow-border rounded-2xl p-6 text-center"
                 >
-                  <div className="from-cyan to-violet bg-gradient-to-br bg-clip-text text-3xl font-bold text-transparent sm:text-4xl">
+                  <div className="from-cyan to-violet bg-linear-to-br bg-clip-text text-3xl font-bold text-transparent sm:text-4xl">
                     {r.value}
                   </div>
                   <div className="text-muted mt-1 text-sm">{r.label}</div>
@@ -170,7 +172,7 @@ export default async function CaseStudyPage({
                     key={f}
                     className="glass text-text/90 flex items-start gap-3 rounded-xl p-4 text-sm leading-relaxed"
                   >
-                    <span className="from-cyan to-violet text-bg mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-gradient-to-br">
+                    <span className="from-cyan to-violet text-bg mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-linear-to-br">
                       <Check size={12} strokeWidth={3} />
                     </span>
                     {f}
@@ -188,7 +190,7 @@ export default async function CaseStudyPage({
                 {project.tech.map((t) => (
                   <span
                     key={t}
-                    className="text-text/90 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2.5 font-mono text-sm"
+                    className="text-text/90 rounded-xl border border-white/10 bg-white/4 px-4 py-2.5 font-mono text-sm"
                   >
                     {t}
                   </span>

@@ -1,7 +1,7 @@
-import Link from "next/link";
-import { Code2, Heart, Mail, MapPin } from "lucide-react";
-import { Github, Linkedin, Twitter, Dribbble } from "./ui/BrandIcons";
 import { navLinks, profile } from "@/data/portfolio";
+import { Code2, Heart, Mail, MapPin } from "lucide-react";
+import Link from "next/link";
+import { Dribbble, Github, Linkedin, Twitter } from "./ui/BrandIcons";
 
 export default function Footer() {
   return (
@@ -13,7 +13,7 @@ export default function Footer() {
             href="/"
             className="flex w-fit items-center gap-2 font-mono font-bold"
           >
-            <span className="from-cyan to-violet text-bg grid h-9 w-9 place-items-center rounded-lg bg-gradient-to-br">
+            <span className="from-cyan to-violet text-bg grid h-9 w-9 place-items-center rounded-lg bg-linear-to-br">
               <Code2 size={17} strokeWidth={2.5} />
             </span>
             {profile.name.split(" ")[0]}
